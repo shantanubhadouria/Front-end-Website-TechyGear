@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - TechyGear</title>
+    <link rel="stylesheet" href="stylepr.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="/images/favicon.jpg" type="image/jpg">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .signin-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .signin-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .signin-container .form-group {
+            margin-bottom: 15px;
+        }
+        .signin-container .btn {
+            width: 100%;
+        }
+        .error-message, .center-message {
+            display: none;
+            color: white;
+            text-align: center;
+            margin-top: 10px;
+            background-color: red;
+            padding: 10px;
+            border-radius: 5px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+        .error-message.show, .center-message.show {
+            display: block;
+            animation: fadeInOut 3s ease-in-out;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            10%, 90% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .forgot-password {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .otp-message {
+            display: none;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        .otp-message.show {
+            display: block;
+        }
+        @keyframes jump {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Navigation Bar Animation Styles */
+        .navbar-nav .nav-link {
+            position: relative;
+            display: inline-block;
+            padding: 10px 15px;
+            color: #000;
+            transition: color 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #007bff;
+        }
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 100%;
+            background-color: #007bff;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s;
+        }
+        .navbar-nav .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .navbar-nav .nav-link.bounce {
+            animation: bounce 0.3s;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html"><img src="/images/favicon.jpg" alt="TechyGear" style="width:40px;height:40px;"> TechyGear</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categories
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                            <a class="dropdown-item" href="laptops.html">Laptops</a>
+                            <a class="dropdown-item" href="phones.html">Smartphones</a>
+                            <a class="dropdown-item" href="wearables.html">Wearables</a>
+                            <a class="dropdown-item" href="headphones-earphones.html">Headphones and Earphones</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 position-relative">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <div class="suggestions"></div>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="signin.html">Sign In</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="signin-container">
+            <h2>Sign In</h2>
+            <form id="signin-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" required>
+                    <div class="invalid-feedback">Please enter your password.</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+                <button type="button" class="btn btn-link" id="signup-button">Sign Up</button>
+                <div class="forgot-password">
+                    <a href="#" id="forgot-password-link">Forgot Password?</a>
+                </div>
+                <div class="error-message" id="error-message">Incorrect email or password. Please try again.</div>
+            </form>
+            <form id="forgot-password-form" style="display: none;">
+                <div class="form-group">
+                    <label for="forgot-password-email">Email</label>
+                    <input type="email" class="form-control" id="forgot-password-email" required>
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Generate OTP</button>
+            </form>
+            <form id="otp-form" style="display: none;">
+                <div class="form-group">
+                    <label for="otp-input">Enter OTP</label>
+                    <input type="text" class="form-control" id="otp-input" required>
+                    <div class="invalid-feedback">Please enter the OTP.</div>
+                </div>
+                <div class="form-group">
+                    <label for="new-password">New Password</label>
+                    <input type="password" class="form-control" id="new-password" required>
+                    <div class="invalid-feedback">Please enter your new password.</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Reset Password</button>
+            </form>
+        </div>
+    </main>
+    <footer class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>© 2024 TechyGear, Inc. All rights reserved.</small>
+        </div>
+    </footer>
+    <div class="otp-message" id="otp-message"></div>
+    <div class="message center-message" id="center-message"></div>
+    <script>
+        let generatedOTP = '';
+
+        document.getElementById('signin-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const form = event.target;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const user = JSON.parse(localStorage.getItem(email));
+
+            if (form.checkValidity()) {
+                if (user && user.password === password) {
+                    localStorage.setItem('userName', user.name);
+                    localStorage.setItem('userEmail', user.email);
+                    window.location.href = 'index.html'; // Redirect to home page after successful login
+                } else {
+                    showCenterMessage('Incorrect email or password. Please try again.', 'red');
+                }
+            } else {
+                form.classList.add('was-validated');
+            }
+        });
+
+        document.getElementById('signup-button').addEventListener('click', function() {
+            window.location.href = 'signup.html';
+        });
+
+        document.getElementById('forgot-password-link').addEventListener('click', function() {
+            document.getElementById('signin-form').style.display = 'none';
+            document.getElementById('forgot-password-form').style.display = 'block';
+        });
+
+        document.getElementById('forgot-password-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const email = document.getElementById('forgot-password-email').value;
+            const user = JSON.parse(localStorage.getItem(email));
+
+            if (user) {
+                generatedOTP = Math.floor(1000 + Math.random() * 9000).toString();
+                const otpMessage = document.getElementById('otp-message');
+                otpMessage.textContent = `Your OTP is ${generatedOTP}`;
+                otpMessage.classList.add('show');
+                document.getElementById('forgot-password-form').style.display = 'none';
+                document.getElementById('otp-form').style.display = 'block';
+            } else {
+                alert('Email not found. Please sign up.');
+            }
+        });
+
+        document.getElementById('otp-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const otpInput = document.getElementById('otp-input').value;
+            const newPassword = document.getElementById('new-password').value;
+            const email = document.getElementById('forgot-password-email').value;
+
+            if (otpInput === generatedOTP) {
+                const user = JSON.parse(localStorage.getItem(email));
+                user.password = newPassword;
+                localStorage.setItem(email, JSON.stringify(user));
+                showCenterMessage('Password reset successful. Please sign in with your new password.', 'green');
+                setTimeout(() => {
+                    window.location.href = 'signin.html';
+                }, 3000);
+            } else {
+                showCenterMessage('Incorrect OTP. Please try again.', 'red');
+            }
+        });
+
+        function showCenterMessage(message, color) {
+            const centerMessage = document.getElementById('center-message');
+            centerMessage.textContent = message;
+            centerMessage.style.backgroundColor = color;
+            centerMessage.classList.add('show');
+            setTimeout(() => {
+                centerMessage.classList.remove('show');
+            }, 3000);
+        }
+
+        // Add bounce effect on click for navigation links
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                this.classList.add('bounce');
+                setTimeout(() => {
+                    this.classList.remove('bounce');
+                }, 300);
+            });
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

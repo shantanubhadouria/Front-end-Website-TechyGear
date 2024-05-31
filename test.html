@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - ElixirEcho6</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+ 
+        .register-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            width: 100%;
+            margin-top: 20px;
+            padding: 40px;
+        }
+ 
+        .register-form h1 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-align: center;
+            color: #333;
+        }
+ 
+        .register-form .btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+ 
+        .register-form .btn:hover {
+            background-color: #218838;
+        }
+ 
+        .register-form .form-text {
+            text-align: center;
+            margin-top: 10px;
+        }
+ 
+        .register-form .form-check {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+ 
+        .register-form .forgot-password {
+            color: #28a745;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+ 
+        .register-form .forgot-password:hover {
+            text-decoration: underline;
+        }
+ 
+        .register-form .sign-up {
+            margin-top: 20px;
+            text-align: center;
+        }
+ 
+        .register-form .sign-up a {
+            color: #28a745;
+            text-decoration: none;
+        }
+ 
+        .register-form .sign-up a:hover {
+            text-decoration: underline;
+        }
+ 
+        .register-form .social-login {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+ 
+        .register-form .social-login button {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 48%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.3s;
+            color: black;
+        }
+ 
+        .register-form .social-login button:hover {
+            border-color: #28a745;
+        }
+ 
+        .register-form .social-login img {
+            margin-right: 10px;
+        }
+ 
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+ 
+        .header img {
+            width: 50px;
+            margin-right: 10px;
+        }
+ 
+        .header h2 {
+            font-size: 2rem;
+            color: #333;
+            margin: 0;
+        }
+ 
+        .company-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+ 
+        .company-logo img {
+            width: 50px;
+            margin-right: 10px;
+        }
+ 
+        .company-logo h2 {
+            margin: 0;
+            font-size: 2rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="company-logo">
+        <img src="/images/company_logo.webp" alt="ElixirEcho6 Logo">
+        <h2>ElixirEcho6</h2>
+    </div>
+    <div class="register-container">
+        <div class="register-form">
+            <h1>About You</h1>
+            <div class="social-login">
+                <button class="btn btn-light" onclick="window.location.href='index.html'">
+                    <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook" width="20"> Facebook
+                </button>
+                <button class="btn btn-light" onclick="window.location.href='index.html'">
+                    <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google" width="20"> Google
+                </button>
+            </div>
+            <p class="form-text">Or create an email account</p>
+            <form id="register-form">
+                <div class="mb-3">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="fullName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmEmail" class="form-label">Confirm Email address</label>
+                    <input type="email" class="form-control" id="confirmEmail" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" required>
+                </div>
+                <div class="mb-3">
+                    <p>From time to time we would like to send you emails containing:</p>
+                    <ul>
+                        <li>Exclusive Offers</li>
+                        <li>Exclusive Discounts</li>
+                    </ul>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="emailPreference" id="yesPlease" value="yes">
+                        <label class="form-check-label" for="yesPlease">Yes Please</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="emailPreference" id="noThanks" value="no">
+                        <label class="form-check-label" for="noThanks">No Thanks</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Continue</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#register-form').submit(function(event) {
+                event.preventDefault();
+                // Simulate form validation
+                const fullName = $('#fullName').val();
+                const email = $('#email').val();
+                const confirmEmail = $('#confirmEmail').val();
+                const password = $('#password').val();
+                const confirmPassword = $('#confirmPassword').val();
+ 
+                if (email !== confirmEmail) {
+                    alert('Emails do not match');
+                    return;
+                }
+ 
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match');
+                    return;
+                }
+ 
+                // Perform further processing here
+ 
+                // Redirect to home page after successful registration
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+</html>
+ 

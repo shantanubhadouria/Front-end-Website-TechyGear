@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphones - TechyGear</title>
+    <link rel="stylesheet" href="stylepr.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="/images/favicon.jpg" type="image/jpg">
+    <style>
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.5s ease-out;
+        }
+        .card-body {
+            flex-grow: 1;
+        }
+        .card-img-top {
+            object-fit: contain;
+            height: 200px;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn-group .btn {
+            flex: 1;
+            margin: 0 5px;
+        }
+        .card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html"><img src="/images/favicon.jpg" alt="TechyGear" style="width:40px;height:40px;"> TechyGear</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categories
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                            <a class="dropdown-item" href="laptops.html">Laptops</a>
+                            <a class="dropdown-item" href="phones.html">Smartphones</a>
+                            <a class="dropdown-item" href="wearables.html">Wearables</a>
+                            <a class="dropdown-item" href="headphones-earphones.html">Headphones and Earphones</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 position-relative">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <div class="suggestions"></div>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item" id="account-nav-item"><a class="nav-link" href="signin.html">Sign In</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="products py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Smartphones</h2>
+                <div class="row" id="product-list">
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card">
+                            <img src="images/galaxy_s24ultra.jpg" class="card-img-top" alt="Samsung Galaxy S24 Ultra">
+                            <div class="card-body">
+                                <h5 class="card-title">Samsung Galaxy S24 Ultra</h5>
+                                <p class="card-text">A high-end smartphone with exceptional performance, camera quality, and battery life.</p>
+                                <p class="card-text">£999.99</p>
+                                <div class="btn-group">
+                                    <a href="phone1.html" class="btn btn-primary">View Details</a>
+                                    <a href="#" class="btn btn-secondary add-to-cart" data-name="Samsung Galaxy S24 Ultra" data-price="999.99" data-image="images/galaxy_s24ultra.jpg">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card">
+                            <img src="images/pixel_8pro.jpg" class="card-img-top" alt="Google Pixel 8 Pro">
+                            <div class="card-body">
+                                <h5 class="card-title">Google Pixel 8 Pro</h5>
+                                <p class="card-text">A smartphone with an exceptional camera, smooth performance, and seamless Google integration.</p>
+                                <p class="card-text">£899.99</p>
+                                <div class="btn-group">
+                                    <a href="phone2.html" class="btn btn-primary">View Details</a>
+                                    <a href="#" class="btn btn-secondary add-to-cart" data-name="Google Pixel 8 Pro" data-price="899.99" data-image="images/pixel_8pro.jpg">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card">
+                            <img src="images/15promax.jpg" class="card-img-top" alt="iPhone 15 Pro">
+                            <div class="card-body">
+                                <h5 class="card-title">iPhone 15 Pro</h5>
+                                <p class="card-text">A flagship smartphone with top-notch performance, camera capabilities, and build quality.</p>
+                                <p class="card-text">£1,099.99</p>
+                                <div class="btn-group">
+                                    <a href="phone3.html" class="btn btn-primary">View Details</a>
+                                    <a href="#" class="btn btn-secondary add-to-cart" data-name="iPhone 15 Pro" data-price="1099.99" data-image="images/15promax.jpg">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card">
+                            <img src="images/oneplus.jpg" class="card-img-top" alt="OnePlus 12">
+                            <div class="card-body">
+                                <h5 class="card-title">OnePlus 12</h5>
+                                <p class="card-text">A powerful smartphone offering fast performance, great battery life, and an excellent display.</p>
+                                <p class="card-text">£799.99</p>
+                                <div class="btn-group">
+                                    <a href="phone4.html" class="btn btn-primary">View Details</a>
+                                    <a href="#" class="btn btn-secondary add-to-cart" data-name="OnePlus 12" data-price="799.99" data-image="images/oneplus.jpg">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat for more products -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>© 2024 TechyGear, Inc. All rights reserved.</small>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="jspr.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const productCards = document.querySelectorAll('.card');
+            const scrollPosition = window.scrollY + window.innerHeight;
+            productCards.forEach(card => {
+                if (card.getBoundingClientRect().top + window.scrollY < scrollPosition) {
+                    card.classList.add('show');
+                }
+            });
+
+            document.addEventListener('scroll', function() {
+                const scrollPosition = window.scrollY + window.innerHeight;
+                productCards.forEach(card => {
+                    if (card.getBoundingClientRect().top + window.scrollY < scrollPosition) {
+                        card.classList.add('show');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

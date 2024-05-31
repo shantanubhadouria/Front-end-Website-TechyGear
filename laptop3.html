@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSI Katana 15 - TechyGear</title>
+    <link rel="stylesheet" href="stylepr.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="/images/favicon.jpg" type="image/jpg">
+    <style>
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .product-gallery-thumbnails {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .product-gallery-thumbnails img {
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: transform 0.2s ease;
+        }
+        .product-gallery-thumbnails img:hover {
+            transform: scale(1.1);
+        }
+        .product-gallery-thumbnails img.active {
+            border: 2px solid #007bff;
+        }
+        #main-image {
+            transition: opacity 0.5s ease;
+        }
+        .product-details {
+            margin-top: 20px;
+        }
+        .product-specifications {
+            margin-top: 20px;
+        }
+        .product-reviews {
+            margin-top: 20px;
+        }
+        .product-review {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .product-review:last-child {
+            border-bottom: none;
+        }
+        .product-review h5 {
+            margin-bottom: 5px;
+        }
+        .product-review p {
+            margin-bottom: 0;
+        }
+        .btn-animate {
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .btn-animate:hover {
+            transform: scale(1.05);
+            background-color: #0056b3;
+        }
+        .related-products, .product-features, .product-videos, .product-faqs {
+            margin-top: 40px;
+        }
+        .related-products h3, .product-features h3, .product-videos h3, .product-faqs h3 {
+            margin-bottom: 20px;
+        }
+        .product-features .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .product-features .feature img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html"><img src="/images/favicon.jpg" alt="TechyGear" style="width:40px;height:40px;"> TechyGear</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categories
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                            <a class="dropdown-item" href="laptops.html">Laptops</a>
+                            <a class="dropdown-item" href="phones.html">Smartphones</a>
+                            <a class="dropdown-item" href="wearables.html">Wearables</a>
+                            <a class="dropdown-item" href="headphones-earphones.html">Headphones and Earphones</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 position-relative">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <div class="suggestions"></div>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="signin.html">Sign In</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="product-detail py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="product-gallery">
+                            <img id="main-image" src="images/laptop3.jpg" class="img-fluid" alt="MSI Katana 15 Thumbnail 1">
+                            <div class="product-gallery-thumbnails">
+                                <img src="images/laptop3.jpg" alt="MSI Katana 15 Thumbnail 1" class="active" onclick="changeImage(this)">
+                                <img src="images/msi_thumbnail1.jpg" alt="MSI Katana 15 Thumbnail 2" onclick="changeImage(this)">
+                                <img src="images/msi_thumbnail2.jpg" alt="MSI Katana 15 Thumbnail 3" onclick="changeImage(this)">
+                                <img src="images/msi_thumbnail3.jpg" alt="MSI Katana 15 Thumbnail 4" onclick="changeImage(this)">
+                                <img src="images/msi_thumbnail4.jpg" alt="MSI Katana 15 Thumbnail 5" onclick="changeImage(this)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="product-title">MSI Katana 15</h2>
+                        <p class="product-price">£1,249.99</p>
+                        <p class="product-description">The MSI Katana 15 is a powerful gaming laptop designed for immersive gaming experiences. With high-end graphics, a fast processor, and sleek design, it's perfect for gamers who demand the best performance.</p>
+                        <button class="btn btn-primary btn-lg btn-animate buy-now" data-name="MSI Katana 15" data-price="1249.99" data-image="/images/laptop3.jpg">Buy Now</button>
+                        <button class="btn btn-secondary btn-lg btn-animate add-to-cart" data-name="MSI Katana 15" data-price="1249.99" data-image="/images/laptop3.jpg">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="row product-details">
+                    <div class="col-12">
+                        <h3>Product Details</h3>
+                        <ul>
+                            <li>Processor: Intel Core i7 11th Gen</li>
+                            <li>Memory: 16GB RAM</li>
+                            <li>Storage: 512GB SSD</li>
+                            <li>Display: 15.6-inch Full HD</li>
+                            <li>Graphics: NVIDIA GeForce RTX 3060</li>
+                            <li>Battery Life: Up to 6 hours</li>
+                            <li>Weight: 4.85 pounds</li>
+                            <li>Operating System: Windows 10</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row product-specifications">
+                    <div class="col-12">
+                        <h3>Specifications</h3>
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Processor</th>
+                                    <td>Intel Core i7 11th Gen</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Memory</th>
+                                    <td>16GB RAM</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Storage</th>
+                                    <td>512GB SSD</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Display</th>
+                                    <td>15.6-inch Full HD</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Graphics</th>
+                                    <td>NVIDIA GeForce RTX 3060</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Battery Life</th>
+                                    <td>Up to 6 hours</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Weight</th>
+                                    <td>4.85 pounds</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Operating System</th>
+                                    <td>Windows 10</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row product-reviews">
+                    <div class="col-12">
+                        <h3>Customer Reviews</h3>
+                        <div class="product-review">
+                            <h5>Chris Lee</h5>
+                            <p>⭐⭐⭐⭐⭐</p>
+                            <p>The MSI Katana 15 is a beast of a gaming laptop. The graphics are amazing, and it handles all the latest games with ease. Highly recommend for serious gamers.</p>
+                        </div>
+                        <div class="product-review">
+                            <h5>Alex Johnson</h5>
+                            <p>⭐⭐⭐⭐</p>
+                            <p>Great performance and design. The only downside is the battery life, but it's not a big deal if you mostly use it plugged in.</p>
+                        </div>
+                        <div class="product-review">
+                            <h5>Jordan Smith</h5>
+                            <p>⭐⭐⭐⭐⭐</p>
+                            <p>Perfect for gaming and work. The build quality is top-notch, and the display is fantastic. Couldn't be happier with my purchase.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row product-videos">
+                    <div class="col-12">
+                        <h3>Product Videos</h3>
+                        <video controls width="100%">
+                            <source src="videos/product_video2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <div class="row product-faqs">
+                    <div class="col-12">
+                        <h3>Frequently Asked Questions</h3>
+                        <div class="accordion" id="faqAccordion">
+                            <div class="card">
+                                <div class="card-header" id="faqHeading1">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                                            What is the battery life of the MSI Katana 15?
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="faq1" class="collapse show" aria-labelledby="faqHeading1" data-parent="#faqAccordion">
+                                    <div class="card-body">
+                                        The MSI Katana 15 offers up to 6 hours of battery life on a single charge.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="faqHeading2">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                            Does the MSI Katana 15 support external monitors?
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="faq2" class="collapse" aria-labelledby="faqHeading2" data-parent="#faqAccordion">
+                                    <div class="card-body">
+                                        Yes, the MSI Katana 15 supports multiple external monitors.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="faqHeading3">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                            Is the MSI Katana 15 compatible with Windows applications?
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="faq3" class="collapse" aria-labelledby="faqHeading3" data-parent="#faqAccordion">
+                                    <div class="card-body">
+                                        Absolutely, the MSI Katana 15 runs Windows 10 and is compatible with all Windows applications.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row related-products">
+                    <div class="col-12">
+                        <h3>Related Products</h3>
+                        <div class="related-products">
+                            <div class="product-card card">
+                                <img src="images/laptop.jpg" class="card-img-top" alt="MacBook M2">
+                                <div class="card-body">
+                                    <h5 class="card-title">MacBook M2</h5>
+                                    <p class="card-text">High-performance laptop with Apple's latest M2 chip, offering improved speed, efficiency, and enhanced graphics.</p>
+                                    <p class="card-text">£1,099.99</p>
+                                    <div class="btn-group">
+                                        <a href="laptop1.html" class="btn btn-primary">View Details</a>
+                                        <button class="btn btn-secondary add-to-cart" data-name="MacBook M2" data-price="1099.99" data-image="/images/laptop.jpg">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card card">
+                                <img src="images/laptop2.jpg" class="card-img-top" alt="Galaxy Book Pro 4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Galaxy Book Pro 4</h5>
+                                    <p class="card-text">Versatile and lightweight laptop featuring a vivid display, powerful performance, and seamless integration with the Samsung ecosystem.</p>
+                                    <p class="card-text">£999.99</p>
+                                    <div class="btn-group">
+                                        <a href="laptop2.html" class="btn btn-primary">View Details</a>
+                                        <button class="btn btn-secondary add-to-cart" data-name="Galaxy Book Pro 4" data-price="999.99" data-image="/images/laptop2.jpg">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card card">
+                                <img src="images/laptop4.jpg" class="card-img-top" alt="ASUS ROG Zephyrus M16">
+                                <div class="card-body">
+                                    <h5 class="card-title">ASUS ROG Zephyrus M16</h5>
+                                    <p class="card-text">The ASUS ROG Zephyrus M16 is a high-performance gaming laptop with a sleek design, featuring a stunning 16-inch display, powerful GPU, and advanced cooling for top-tier gaming and productivity.</p>
+                                    <p class="card-text">£3,199.99</p>
+                                    <div class="btn-group">
+                                        <a href="laptop4.html" class="btn btn-primary">View Details</a>
+                                        <button class="btn btn-secondary add-to-cart" data-name="ASUS ROG Zephyrus M16" data-price="3199.99" data-image="/images/laptop4.jpg">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>© 2024 TechyGear, Inc. All rights reserved.</small>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="jspr.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        function changeImage(element) {
+            const mainImage = document.getElementById('main-image');
+            mainImage.style.opacity = 0;
+
+            setTimeout(() => {
+                mainImage.src = element.src;
+                mainImage.style.opacity = 1;
+            }, 300);
+
+            const thumbnails = document.querySelectorAll('.product-gallery-thumbnails img');
+            thumbnails.forEach(img => img.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>

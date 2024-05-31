@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptops - TechyGear</title>
+    <link rel="stylesheet" href="stylepr.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="/images/favicon.jpg" type="image/jpg">
+    <style>
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            position: relative;
+        }
+        .card-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card-img-top {
+            object-fit: contain;
+            height: 200px;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn-group .btn {
+            flex: 1;
+            margin: 0 5px;
+        }
+        .badge-sale {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: red;
+            color: white;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+        }
+        .card-text.discounted {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html"><img src="/images/favicon.jpg" alt="TechyGear" style="width:40px;height:40px;"> TechyGear</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categories
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                            <a class="dropdown-item" href="laptops.html">Laptops</a>
+                            <a class="dropdown-item" href="phones.html">Smartphones</a>
+                            <a class="dropdown-item" href="wearables.html">Wearables</a>
+                            <a class="dropdown-item" href="headphones-earphones.html">Headphones and Earphones</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 position-relative">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <div class="suggestions"></div>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="signin.html">Sign In</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="products py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Laptops</h2>
+                <div class="row">
+                    <!-- Add laptop products here -->
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card">
+                            <span class="badge-sale">Sale</span>
+                            <img src="images/laptop.jpg" class="card-img-top" alt="Macbook M2">
+                            <div class="card-body">
+                                <h5 class="card-title">Macbook M2</h5>
+                                <p class="card-text">High-performance laptop with Apple's latest M2 chip, offering improved speed, efficiency, and enhanced graphics.</p>
+                                <p class="card-text"><s>£1,199.99</s> <span class="discounted">£1,099.99</span></p>
+                                <div class="btn-group">
+                                    <a href="laptop1.html" class="btn btn-primary">View Details</a>
+                                    <a href="#" class="btn btn-secondary add-to-cart" data-name="Macbook M2" data-price="1099.99" data-image="/images/laptop.jpg">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card">
+                            <img src="images/laptop2.jpg" class="card-img-top" alt="Galaxy Book 4">
+                            <div class="card-body">
+                                <h5 class="card-title">Galaxy Book 4 Pro</h5>
+                                <p class="card-text">Versatile and lightweight laptop featuring a vivid display, powerful performance, and seamless integration with the Samsung ecosystem.</p>
+                                <p class="card-text">£999.99</p>
+                                <div class="btn-group">
+                                    <a href="laptop2.html" class="btn btn-primary">View Details</a>
+                                    <a href="#" class="btn btn-secondary add-to-cart" data-name="Galaxy Book 4 Pro" data-price="999.99" data-image="/images/laptop2.jpg">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card">
+                            <img src="images/laptop3.jpg" class="card-img-top" alt="MSI Katana 15">
+                            <div class="card-body">
+                                <h5 class="card-title">MSI Katana 15</h5>
+                                <p class="card-text">The MSI Katana 15 is a powerful gaming laptop with high-end graphics, a fast processor, and a sleek design tailored for an immersive gaming experience.</p>
+                                <p class="card-text">£1,249.99</p>
+                                <div class="btn-group">
+                                    <a href="laptop3.html" class="btn btn-primary">View Details</a>
+                                    <a href="#" class="btn btn-secondary add-to-cart" data-name="MSI Katana 15" data-price="1249.99" data-image="/images/laptop3.jpg">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card">
+                            <img src="images/laptop4.jpg" class="card-img-top" alt="ASUS ROG Zephyrus M16">
+                            <div class="card-body">
+                                <h5 class="card-title">ASUS ROG Zephyrus M16</h5>
+                                <p class="card-text">The ASUS ROG Zephyrus M16 is a high-performance gaming laptop with a sleek design, featuring a stunning 16-inch display, powerful GPU, and advanced cooling for top-tier gaming and productivity.</p>
+                                <p class="card-text">£3,199.99</p>
+                                <div class="btn-group">
+                                    <a href="laptop4.html" class="btn btn-primary">View Details</a>
+                                    <a href="#" class="btn btn-secondary add-to-cart" data-name="ASUS ROG Zephyrus M16" data-price="3199.99" data-image="/images/laptop4.jpg">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat for more products -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>© 2024 TechyGear, Inc. All rights reserved.</small>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="jspr.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung Galaxy Watch6 - TechyGear</title>
+    <link rel="stylesheet" href="stylepr.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="/images/favicon.jpg" type="image/jpg">
+    <style>
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .product-gallery-thumbnails {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .product-gallery-thumbnails img {
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: transform 0.2s ease;
+        }
+        .product-gallery-thumbnails img:hover {
+            transform: scale(1.1);
+        }
+        .product-gallery-thumbnails img.active {
+            border: 2px solid #007bff;
+        }
+        #main-image {
+            transition: opacity 0.5s ease;
+        }
+        .product-details {
+            margin-top: 20px;
+        }
+        .product-specifications {
+            margin-top: 20px;
+        }
+        .product-reviews {
+            margin-top: 20px;
+        }
+        .product-review {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .product-review:last-child {
+            border-bottom: none;
+        }
+        .product-review h5 {
+            margin-bottom: 5px;
+        }
+        .product-review p {
+            margin-bottom: 0;
+        }
+        .btn-animate {
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .btn-animate:hover {
+            transform: scale(1.05);
+            background-color: #0056b3;
+        }
+        .related-products, .product-features, .product-videos, .product-faqs {
+            margin-top: 40px;
+        }
+        .related-products h3, .product-features h3, .product-videos h3, .product-faqs h3 {
+            margin-bottom: 20px;
+        }
+        .product-features .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .product-features .feature img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html"><img src="/images/favicon.jpg" alt="TechyGear" style="width:40px;height:40px;"> TechyGear</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categories
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                            <a class="dropdown-item" href="laptops.html">Laptops</a>
+                            <a class="dropdown-item" href="phones.html">Smartphones</a>
+                            <a class="dropdown-item" href="wearables.html">Wearables</a>
+                            <a class="dropdown-item" href="headphones-earphones.html">Headphones and Earphones</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 position-relative">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <div class="suggestions"></div>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="signin.html">Sign In</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="product-detail py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="product-gallery">
+                            <img id="main-image" src="images/galaxy_watch.jpg" class="img-fluid" alt="Samsung Galaxy Watch6">
+                            <div class="product-gallery-thumbnails">
+                                <img src="images/galaxy_watch.jpg" alt="Samsung Galaxy Watch6 Thumbnail 1" class="active" onclick="changeImage(this)">
+                                <img src="images/galaxy_watch1.jpg" alt="Samsung Galaxy Watch6 Thumbnail 2" onclick="changeImage(this)">
+                                <img src="images/galaxy_watch2.jpg" alt="Samsung Galaxy Watch6 Thumbnail 3" onclick="changeImage(this)">
+                                <img src="images/galaxy_watch3.jpg" alt="Samsung Galaxy Watch6 Thumbnail 4" onclick="changeImage(this)">
+                                <img src="images/galaxy_watch4.jpg" alt="Samsung Galaxy Watch6 Thumbnail 5" onclick="changeImage(this)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="product-title">Samsung Galaxy Watch 6</h2>
+                        <p class="product-price">£299.99</p>
+                        <p class="product-description">The Samsung Galaxy Watch6 is a versatile smartwatch that offers comprehensive health monitoring, fitness tracking, and seamless connectivity with Android devices. It features a sleek design, vibrant display, and long battery life.</p>
+                        <button class="btn btn-primary btn-lg btn-animate buy-now" data-name="Samsung Watch Watch " data-price="299.99" data-image="/images/galaxy_watch.jpg">Buy Now</button>
+                        <button class="btn btn-secondary btn-lg btn-animate add-to-cart" data-name="Samsung Galaxy Watch6" data-price="299.99" data-image="/images/galaxy_watch.jpg">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="row product-details">
+                    <div class="col-12">
+                        <h3>Product Details</h3>
+                        <ul>
+                            <li>Display: 1.4-inch Super AMOLED</li>
+                            <li>Battery Life: Up to 40 hours</li>
+                            <li>GPS: Yes</li>
+                            <li>Water Resistance: 5 ATM</li>
+                            <li>Health Monitoring: ECG, SpO2, heart rate, sleep tracking</li>
+                            <li>Compatibility: Android</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row product-specifications">
+                    <div class="col-12">
+                        <h3>Specifications</h3>
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Display</th>
+                                    <td>1.4-inch Super AMOLED</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Battery Life</th>
+                                    <td>Up to 40 hours</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">GPS</th>
+                                    <td>Yes</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Water Resistance</th>
+                                    <td>5 ATM</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Health Monitoring</th>
+                                    <td>ECG, SpO2, heart rate, sleep tracking</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Compatibility</th>
+                                    <td>Android</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row product-reviews">
+                    <div class="col-12">
+                        <h3>Customer Reviews</h3>
+                        <div class="product-review">
+                            <h5>Emma Wilson</h5>
+                            <p>⭐⭐⭐⭐⭐</p>
+                            <p>The Samsung Galaxy Watch6 is a fantastic smartwatch. The health features are very accurate, and the battery life is impressive. Highly recommend!</p>
+                        </div>
+                        <div class="product-review">
+                            <h5>James Brown</h5>
+                            <p>⭐⭐⭐⭐</p>
+                            <p>Great smartwatch with lots of features. The design is sleek, and the display is bright and clear. The only downside is the price, but it's worth it.</p>
+                        </div>
+                        <div class="product-review">
+                            <h5>Linda Johnson</h5>
+                            <p>⭐⭐⭐⭐⭐</p>
+                            <p>Excellent smartwatch for fitness tracking and daily use. The battery life is amazing, and it's very comfortable to wear all day.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row product-videos">
+                    <div class="col-12">
+                        <h3>Product Videos</h3>
+                        <video controls width="100%">
+                            <source src="videos/watch3.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <div class="row product-faqs">
+                    <div class="col-12">
+                        <h3>Frequently Asked Questions</h3>
+                        <div class="accordion" id="faqAccordion">
+                            <div class="card">
+                                <div class="card-header" id="faqHeading1">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                                            What is the battery life of the Samsung Galaxy Watch6?
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="faq1" class="collapse show" aria-labelledby="faqHeading1" data-parent="#faqAccordion">
+                                    <div class="card-body">
+                                        The Samsung Galaxy Watch6 offers up to 40 hours of battery life on a single charge.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="faqHeading2">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                            Does the Samsung Galaxy Watch6 support GPS?
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="faq2" class="collapse" aria-labelledby="faqHeading2" data-parent="#faqAccordion">
+                                    <div class="card-body">
+                                        Yes, the Samsung Galaxy Watch6 has built-in GPS for accurate location tracking.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="faqHeading3">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                            Is the Samsung Galaxy Watch6 compatible with iOS devices?
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="faq3" class="collapse" aria-labelledby="faqHeading3" data-parent="#faqAccordion">
+                                    <div class="card-body">
+                                        No, the Samsung Galaxy Watch6 is only compatible with Android devices.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row related-products">
+                    <div class="col-12">
+                        <h3>Related Products</h3>
+                        <div class="related-products">
+                            <div class="product-card card">
+                                <img src="images/huawei_watch.jpg" class="card-img-top" alt="Huawei Watch 4 Pro">
+                                <div class="card-body">
+                                    <h5 class="card-title">Huawei Watch 4 Pro</h5>
+                                    <p class="card-text">A sophisticated smartwatch offering advanced health tracking, long battery life, and a sleek, durable design.</p>
+                                    <p class="card-text">£449.99</p>
+                                    <div class="btn-group">
+                                        <a href="watch1.html" class="btn btn-primary">View Details</a>
+                                        <button class="btn btn-secondary add-to-cart" data-name="Huawei Watch 4 Pro" data-price="449.99" data-image="/images/huawei_watch.jpg">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card card">
+                                <img src="images/apple_watch.jpg" class="card-img-top" alt="Apple Watch Series 9">
+                                <div class="card-body">
+                                    <h5 class="card-title">Apple Watch Series 9</h5>
+                                    <p class="card-text">A powerful smartwatch with advanced health tracking, fitness features, and seamless integration with iOS devices.</p>
+                                    <p class="card-text">£459.99</p>
+                                    <div class="btn-group">
+                                        <a href="watch2.html" class="btn btn-primary">View Details</a>
+                                        <button class="btn btn-secondary add-to-cart" data-name="Apple Watch Series 9" data-price="459.99" data-image="/images/apple_watch.jpg">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card card">
+                                <img src="images/mi_watch.jpg" class="card-img-top" alt="Xiaomi Watch 2 Pro">
+                                <div class="card-body">
+                                    <h5 class="card-title">Xiaomi Watch 2 Pro</h5>
+                                    <p class="card-text">An advanced smartwatch with high-end health tracking features, robust performance, and long battery life.</p>
+                                    <p class="card-text">£238.99</p>
+                                    <div class="btn-group">
+                                        <a href="watch4.html" class="btn btn-primary">View Details</a>
+                                        <button class="btn btn-secondary add-to-cart" data-name="Xiaomi Watch 2 Pro" data-price="238.99" data-image="/images/mi_watch.jpg">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>© 2024 TechyGear, Inc. All rights reserved.</small>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="jspr.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        function changeImage(element) {
+            const mainImage = document.getElementById('main-image');
+            mainImage.style.opacity = 0;
+
+            setTimeout(() => {
+                mainImage.src = element.src;
+                mainImage.style.opacity = 1;
+            }, 300);
+
+            const thumbnails = document.querySelectorAll('.product-gallery-thumbnails img');
+            thumbnails.forEach(img => img.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>

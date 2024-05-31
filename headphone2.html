@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirPods Pro (2nd Gen) - TechyGear</title>
+    <link rel="stylesheet" href="stylepr.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="/images/favicon.jpg" type="image/jpg">
+    <style>
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .product-gallery-thumbnails {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .product-gallery-thumbnails img {
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: transform 0.2s ease;
+        }
+        .product-gallery-thumbnails img:hover {
+            transform: scale(1.1);
+        }
+        .product-gallery-thumbnails img.active {
+            border: 2px solid #007bff;
+        }
+        #main-image {
+            transition: opacity 0.5s ease;
+        }
+        .product-details {
+            margin-top: 20px;
+        }
+        .product-specifications {
+            margin-top: 20px;
+        }
+        .product-reviews {
+            margin-top: 20px;
+        }
+        .product-review {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .product-review:last-child {
+            border-bottom: none;
+        }
+        .product-review h5 {
+            margin-bottom: 5px;
+        }
+        .product-review p {
+            margin-bottom: 0;
+        }
+        .btn-animate {
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .btn-animate:hover {
+            transform: scale(1.05);
+            background-color: #0056b3;
+        }
+        .related-products, .product-features, .product-videos, .product-faqs {
+            margin-top: 40px;
+        }
+        .related-products h3, .product-features h3, .product-videos h3, .product-faqs h3 {
+            margin-bottom: 20px;
+        }
+        .product-features .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .product-features .feature img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .product-videos video {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html"><img src="/images/favicon.jpg" alt="TechyGear" style="width:40px;height:40px;"> TechyGear</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categories
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                            <a class="dropdown-item" href="laptops.html">Laptops</a>
+                            <a class="dropdown-item" href="phones.html">Smartphones</a>
+                            <a class="dropdown-item" href="wearables.html">Wearables</a>
+                            <a class="dropdown-item" href="headphones-earphones.html">Headphones and Earphones</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 position-relative">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <div class="suggestions"></div>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="signin.html">Sign In</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="product-detail py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="product-gallery">
+                            <img id="main-image" src="images/airpodspro.jpg" class="img-fluid" alt="AirPods Pro (2nd Gen)">
+                            <div class="product-gallery-thumbnails">
+                                <img src="images/airpodspro.jpg" alt="AirPods Pro Thumbnail 1" class="active" onclick="changeImage(this)">
+                                <img src="images/airpodspro1.jpg" alt="AirPods Pro Thumbnail 2" onclick="changeImage(this)">
+                                <img src="images/airpodspro2.jpg" alt="AirPods Pro Thumbnail 3" onclick="changeImage(this)">
+                                <img src="images/airpodspro3.jpg" alt="AirPods Pro Thumbnail 4" onclick="changeImage(this)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="product-title">AirPods Pro (2nd Gen)</h2>
+                        <p class="product-price">£249.99</p>
+                        <p class="product-description">Enhanced active noise cancellation and improved sound quality in a compact design. The second-generation AirPods Pro provide an immersive listening experience and seamless connectivity with all your Apple devices.</p>
+                        <button class="btn btn-primary btn-lg btn-animate buy-now" data-name="Airpods Pro (2nd Gen)" data-price="249.99" data-image="/images/airpodspro.jpg">Buy Now</button>
+                        <button class="btn btn-secondary btn-lg btn-animate add-to-cart" data-name="AirPods Pro (2nd Gen)" data-price="249.99" data-image="/images/airpodspro.jpg">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="row product-details">
+                    <div class="col-12">
+                        <h3>Product Details</h3>
+                        <ul>
+                            <li>Active Noise Cancellation: Yes</li>
+                            <li>Battery Life: Up to 4.5 hours (listening time) or 24 hours with the charging case</li>
+                            <li>Wireless Charging: Yes</li>
+                            <li>Sweat and Water Resistance: Yes (IPX4)</li>
+                            <li>Bluetooth Version: 5.0</li>
+                            <li>Voice Assistant: Siri</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row product-specifications">
+                    <div class="col-12">
+                        <h3>Specifications</h3>
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Active Noise Cancellation</th>
+                                    <td>Yes</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Battery Life</th>
+                                    <td>Up to 4.5 hours (listening time) or 24 hours with the charging case</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Wireless Charging</th>
+                                    <td>Yes</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Sweat and Water Resistance</th>
+                                    <td>Yes (IPX4)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Bluetooth Version</th>
+                                    <td>5.0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Voice Assistant</th>
+                                    <td>Siri</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row product-reviews">
+                    <div class="col-12">
+                        <h3>Customer Reviews</h3>
+                        <div class="product-review">
+                            <h5>Emily Brown</h5>
+                            <p>⭐⭐⭐⭐⭐</p>
+                            <p>The sound quality and noise cancellation on these AirPods Pro are outstanding. The new features are a great improvement over the first generation. Highly recommend!</p>
+                        </div>
+                        <div class="product-review">
+                            <h5>John Smith</h5>
+                            <p>⭐⭐⭐⭐</p>
+                            <p>Great earbuds, especially for Apple users. The seamless integration with my iPhone and MacBook is fantastic. The only downside is the battery life could be longer.</p>
+                        </div>
+                        <div class="product-review">
+                            <h5>Jane Doe</h5>
+                            <p>⭐⭐⭐⭐⭐</p>
+                            <p>Love these AirPods Pro! The fit is perfect, and the noise cancellation is a game-changer. Worth every penny.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row product-videos">
+                    <div class="col-12">
+                        <h3>Product Videos</h3>
+                        <video controls>
+                            <source src="videos/airpodspro.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <div class="row product-faqs">
+                    <div class="col-12">
+                        <h3>Frequently Asked Questions</h3>
+                        <div class="accordion" id="faqAccordion">
+                            <div class="card">
+                                <div class="card-header" id="faqHeading1">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                                            How long does the battery last?
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="faq1" class="collapse show" aria-labelledby="faqHeading1" data-parent="#faqAccordion">
+                                    <div class="card-body">
+                                        The battery lasts up to 4.5 hours on a single charge for listening time, and up to 24 hours with the charging case.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="faqHeading2">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                            Are these AirPods water-resistant?
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="faq2" class="collapse" aria-labelledby="faqHeading2" data-parent="#faqAccordion">
+                                    <div class="card-body">
+                                        Yes, they have an IPX4 rating, which means they are sweat and water-resistant.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="faqHeading3">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                            Can I use these AirPods with Android devices?
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="faq3" class="collapse" aria-labelledby="faqHeading3" data-parent="#faqAccordion">
+                                    <div class="card-body">
+                                        Yes, you can use AirPods Pro with Android devices, but some features like Siri and seamless switching between devices are limited to Apple products.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row related-products">
+                    <div class="col-12">
+                        <h3>Related Products</h3>
+                        <div class="related-products">
+                            <div class="product-card card">
+                                <img src="images/bose_headphones.jpg" class="card-img-top" alt="Bose QuietComfort Ultra Wireless Noise Cancelling Headphones">
+                                <div class="card-body">
+                                    <h5 class="card-title">Bose QuietComfort Ultra</h5>
+                                    <p class="card-text">Unparalleled comfort and superior sound quality with advanced noise cancellation.</p>
+                                    <p class="card-text">£449.99</p>
+                                    <div class="btn-group">
+                                        <a href="headphone1.html" class="btn btn-primary">View Details</a>
+                                        <button class="btn btn-secondary add-to-cart" data-name="Bose QuietComfort Ultra" data-price="449.99" data-image="/images/bose_headphones.jpg">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card card">
+                                <img src="images/airpodsmax.jpg" class="card-img-top" alt="AirPods Max">
+                                <div class="card-body">
+                                    <h5 class="card-title">AirPods Max</h5>
+                                    <p class="card-text">High-fidelity audio with active noise cancellation and spatial audio.</p>
+                                    <p class="card-text">£549.99</p>
+                                    <div class="btn-group">
+                                        <a href="headphone3.html" class="btn btn-primary">View Details</a>
+                                        <button class="btn btn-secondary add-to-cart" data-name="AirPods Max" data-price="549.99" data-image="/images/airpodsmax.jpg">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card card">
+                                <img src="images/pixel_buds.jpg" class="card-img-top" alt="Pixel Buds Pro">
+                                <div class="card-body">
+                                    <h5 class="card-title">Pixel Buds Pro</h5>
+                                    <p class="card-text">Premium sound quality with active noise cancellation and long battery life.</p>
+                                    <p class="card-text">£179.99</p>
+                                    <div class="btn-group">
+                                        <a href="headphone4.html" class="btn btn-primary">View Details</a>
+                                        <button class="btn btn-secondary add-to-cart" data-name="Pixel Buds Pro" data-price="179.99" data-image="/images/pixel_buds.jpg">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>© 2024 TechyGear, Inc. All rights reserved.</small>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="jspr.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        function changeImage(element) {
+            const mainImage = document.getElementById('main-image');
+            mainImage.style.opacity = 0;
+
+            setTimeout(() => {
+                mainImage.src = element.src;
+                mainImage.style.opacity = 1;
+            }, 300);
+
+            const thumbnails = document.querySelectorAll('.product-gallery-thumbnails img');
+            thumbnails.forEach(img => img.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>
